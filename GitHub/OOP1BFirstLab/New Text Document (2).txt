@@ -1,0 +1,122 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 23, 2018 at 10:03 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.0.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `web class`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `code` int(7) NOT NULL,
+  `student` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `lec` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course unit`
+--
+
+CREATE TABLE `course unit` (
+  `Unit code` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Unit name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `Unit student` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `Unit lecturer` varchar(45) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lecturer`
+--
+
+CREATE TABLE `lecturer` (
+  `Lec_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Lec_name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
+  `Unit code` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `Student_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Student_name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
+  `Unit code` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user type`
+--
+
+CREATE TABLE `user type` (
+  `Id` int(11) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`code`);
+
+--
+-- Indexes for table `course unit`
+--
+ALTER TABLE `course unit`
+  ADD PRIMARY KEY (`Unit code`);
+
+--
+-- Indexes for table `lecturer`
+--
+ALTER TABLE `lecturer`
+  ADD PRIMARY KEY (`Lec_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`Student_id`);
+COMMIT;
